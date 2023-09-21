@@ -1,8 +1,9 @@
 import streamlit as st
 from intensitytransformation import IntensityTransformation
+from filtering import Filtering
 
 def build_sidebar():
-    page = st.sidebar.selectbox("Select", ("Intensity Transformation",))
+    page = st.sidebar.selectbox("Select", ("Intensity Transformation", "Filtering"))
 
     return page
 
@@ -13,5 +14,7 @@ if __name__ == "__main__":
 
     if page == "Intensity Transformation":
         page_builder = IntensityTransformation()
+    elif page == "Filtering":
+        page_builder = Filtering()
 
     page_builder.build_page()
